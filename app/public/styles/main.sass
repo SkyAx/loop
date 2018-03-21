@@ -1,0 +1,298 @@
+@import "helpers/_variables"
+
+header
+  background: url('/images/header-bg.png') no-repeat top center / cover
+  color: $white
+
+.header-bottom
+  text-align: center
+  margin: 23vh auto
+
+  h1
+    font-size: 52px
+    font-weight: bold
+
+  p
+    margin-top: 20px
+    font-size: 40px
+    font-weight: 300
+
+.offers
+  border-radius: 35px
+  box-shadow: 0 28px 40px 10px rgba(1, 153, 173, 0.24), 0 11px 53px 15px rgba(1, 153, 173, 0.16)
+  background-color: $white
+  text-align: center
+  padding: 47px 85px
+  margin-bottom: 180px
+
+  h2
+    color: $text-grey
+    font-weight: 400
+    font-size: 40px
+
+  &-list
+    display: flex
+    align-items: center
+    justify-content: space-between
+    padding: 0
+    margin: 50px auto 50px
+    list-style: none
+
+  &-item
+    width: 30%
+    padding: 20px
+    background-color: $white
+    color: $main-blue
+    transition: all .3s ease-in-out
+    padding: 22px
+    font-size: 32px
+    border-radius: 5px
+    font-weight: 400
+    background-repeat: no-repeat
+    background-position: 95% center
+    box-shadow: 0 13px 20px -2px rgba(1, 153, 173, 0.24), 0 5px 27px 5px  rgba(1, 153, 173, 0.16)
+
+    &:hover
+      background-color: $main-blue
+      color: $white
+      cursor: pointer
+
+    &.active
+      color: $white
+      background: $main-blue url('/images/check.png') no-repeat 95% center
+
+      &:hover
+        color: $white
+        box-shadow: none
+        background: $main-blue url('/images/check.png') no-repeat 95% center
+
+  &-send
+    margin: 30px auto
+    display: flex
+    flex-flow: wrap
+    justify-content: space-around
+    align-items: center
+
+    .budget
+      width: 40%
+      margin: auto auto -3px auto
+      position: relative
+
+      &-count
+        position: absolute
+        color: $main-blue
+        font-size: 32px
+        top: -30px
+        left: 55%
+        line-height: 1.07
+
+    input
+      color: $text-grey
+      font-size: 32px
+      margin: 22px auto
+      width: 40%
+      border: none
+      text-align: center
+      padding: 15px
+      border-bottom: 1px solid $main-blue
+      outline: none
+
+      &[type='range']
+        width: 100%
+        padding: 0
+        -webkit-appearance: none
+        position: relative
+
+        &::after
+          content: 'Бюджет: '
+          position: absolute
+          top: -55px
+          left: 20%
+          margin: 0 auto
+
+        &:focus
+          outline: none
+
+        &::-webkit-slider-runnable-track
+          width: 100%
+          height: 4px
+          cursor: pointer
+          box-shadow: px px px #00bc58, 0px 0px px #00d664
+          background: #00bcd4
+          border-radius: 1.3px
+          border: 0.2px solid #00bcd4
+
+        &::-webkit-slider-thumb
+          box-shadow: 1.1px 1.1px 1px rgba(0, 188, 212, 0), 0px 0px 1.1px rgba(0, 211, 238, 0)
+          border: 1px solid #00bcd4
+          height: 15px
+          width: 15px
+          border-radius: 50px
+          background: #00bcd4
+          cursor: pointer
+          -webkit-appearance: none
+          margin-top: -5.7px
+
+        &:focus::-webkit-slider-runnable-track
+          background: #00bcd4
+
+        &::-moz-range-track
+          width: 100%
+          height: 4px
+          cursor: pointer
+          box-shadow: px px px #00bc58, 0px 0px px #00d664
+          background: #00bcd4
+          border-radius: 1.3px
+          border: 0.2px solid #00bcd4
+
+        &::-moz-range-thumb
+          box-shadow: 1.1px 1.1px 1px rgba(0, 188, 212, 0), 0px 0px 1.1px rgba(0, 211, 238, 0)
+          border: 1px solid #00bcd4
+          height: 15px
+          width: 15px
+          border-radius: 50px
+          background: #00bcd4
+          cursor: pointer
+
+        &::-ms-track
+          width: 100%
+          height: 4px
+          cursor: pointer
+          background: transparent
+          border-color: transparent
+          color: transparent
+
+        &::-ms-fill-lower
+          background: #00bcd4
+          border: 0.2px solid #00bcd4
+          border-radius: 2.6px
+          box-shadow: px px px #00bc58, 0px 0px px #00d664
+
+        &::-ms-fill-upper
+          background: #00bcd4
+          border: 0.2px solid #00bcd4
+          border-radius: 2.6px
+          box-shadow: px px px #00bc58, 0px 0px px #00d664
+
+        &::-ms-thumb
+          box-shadow: 1.1px 1.1px 1px rgba(0, 188, 212, 0), 0px 0px 1.1px rgba(0, 211, 238, 0)
+          border: 1px solid #00bcd4
+          height: 15px
+          width: 15px
+          border-radius: 50px
+          background: #00bcd4
+          cursor: pointer
+          height: 4px
+
+        &:focus::-ms-fill-lower
+          background: #00bcd4
+
+        &:focus::-ms-fill-upper
+          background: #00bcd4
+
+      &[type='submit']
+        margin-top: 50px
+        width: 294px
+        padding: 22px 0
+        font-size: 32px
+        color: $white
+        cursor: pointer
+        border-radius: 5px
+        background: $green
+        border: none
+        box-shadow: 0 13px 20px -2px rgba(1, 153, 173, 0.24), 0 5px 27px 5px  rgba(1, 153, 173, 0.16)
+
+.portfolio
+  h2
+    margin-bottom: 40px
+
+  &-list
+    display: flex
+    justify-content: space-between
+    align-items: center
+    list-style: none
+    flex-flow: wrap
+
+  &-item
+    margin-top: 70px
+
+    &:hover
+      cursor: pointer
+
+      figcaption
+        opacity: 1
+
+    figure
+      position: relative
+
+    figcaption
+      transition: all .3s
+      position: absolute
+      left: 0
+      right: 0
+      bottom: 3px
+      padding: 15px 0
+      opacity: 0
+      font-size: 30px
+      font-weight: 400
+      color: $white
+      background-color: $main-blue-8
+      border-bottom-left-radius: 37px
+      border-bottom-right-radius: 37px
+
+    img
+      transition: .3 all ease-in-out
+      border-radius: 37px
+      box-shadow: 0 13px 20px -2px rgba(1, 153, 173, 0.24), 0 5px 27px 5px  rgba(1, 153, 173, 0.16)
+
+.reviews
+  margin: 170px auto
+
+  .container
+    border-radius: 35px
+    box-shadow: 0 28px 40px 10px rgba(1, 153, 173, 0.24), 0 11px 53px 15px rgba(1, 153, 173, 0.16)
+    background-color: $white
+    text-align: center
+    padding: 47px 85px
+    margin-bottom: 174px
+
+  .slider
+    margin-top: 72px
+
+    p
+      font-weight: 400
+      color: $text-grey
+      font-size: 30px
+
+  .swiper-pagination-bullet
+    width: 14px
+    height: 14px
+    background-color: $white
+    opacity: 1
+    border: 2px solid $main-blue
+
+  .swiper-pagination-bullet-active
+    background: $main-blue
+
+  .author
+    font-size: 30px
+    width: 382px
+    margin: 102px auto 44px
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+    img
+      max-width: 80px
+      border-radius: 50%
+      box-shadow: 0 20px 70px -13px $main-blue
+
+.btn
+  width: 327px
+  display: inline-block
+  font-size: 32px
+  @extend .btn
+  background-color: $green
+  border-radius: 5px
+  padding: 25px
+  box-shadow: 0 13px 20px -2px rgba(1, 153, 173, 0.24), 0 5px 27px 5px  rgba(1, 153, 173, 0.16)

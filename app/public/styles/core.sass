@@ -1,0 +1,96 @@
+@import "helpers/_variables"
+
+*
+  padding: 0
+  margin: 0
+  box-sizing: border-box
+
+body
+  background: $light-blue
+  font-size: 14px
+  font-family: 'Roboto', sans-serif
+
+  ::-webkit-input-placeholder
+    color: $text-grey
+  ::-moz-placeholder
+    color: $text-grey
+  :-moz-placeholder
+    color: $text-grey
+  :-ms-input-placeholder
+    color: $text-grey
+
+a
+  text-decoration: none
+
+header
+  width: 100%
+  overflow: hidden
+
+section
+  text-align: center
+
+  h2
+    font-size: 40px
+    color: $text-grey
+    font-weight: 400
+
+nav
+  display: none
+
+.container
+  width: 1170px
+  padding: 0 15px
+  margin: 0 auto
+
+.btn
+  cursor: pointer
+  display: inline-block
+  @include btn($main-blue, $white, 15px)
+
+.logo
+  text-transform: uppercase
+  color: $white
+  font-size: 48px
+  font-weight: 300
+
+.header-top
+  display: flex
+  justify-content: space-between
+  align-items: center
+  margin-top: 38px
+
+  &.container
+    width: 92%
+
+footer
+  display: flex
+  color: $white
+
+  .left
+    padding: 30px 0 30px 4%
+    width: 70%
+    background-color: $main-blue
+    font-size: 20px
+
+    .copyright, .phone, .email
+      margin: 8px auto
+
+      span
+        text-decoration: underline
+
+      a
+        text-decoration: none
+        color: $white
+
+  .right
+    padding: 30px 4% 30px 0
+    width: 30%
+    background-color: $green
+
+    a
+      display: block
+      margin: 8px auto
+      text-align: right
+      font-size: 20px
+      text-decoration: none
+      color: $white

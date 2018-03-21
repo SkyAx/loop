@@ -1,0 +1,98 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+body {
+  background: #e0f7fa;
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+  -moz-placeholder-color: #90a7bd;
+  -ms-input-placeholder-color: #90a7bd; }
+  body ::-webkit-input-placeholder {
+    color: #90a7bd; }
+  body ::-moz-placeholder {
+    color: #90a7bd; }
+
+a {
+  text-decoration: none; }
+
+header {
+  width: 100%;
+  overflow: hidden; }
+
+section {
+  text-align: center; }
+  section h2 {
+    font-size: 40px;
+    color: #90a7bd;
+    font-weight: 400; }
+
+nav {
+  display: none; }
+
+.container {
+  width: 1170px;
+  padding: 0 15px;
+  margin: 0 auto; }
+
+.btn {
+  cursor: pointer;
+  display: inline-block;
+  background-color: #00bcd4;
+  color: white;
+  padding: 15px; }
+
+.logo {
+  text-transform: uppercase;
+  color: white;
+  font-size: 48px;
+  font-weight: 300; }
+
+.header-top {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 38px; }
+  .header-top.container {
+    width: 92%; }
+
+footer {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  color: white; }
+  footer .left {
+    padding: 30px 0 30px 4%;
+    width: 70%;
+    background-color: #00bcd4;
+    font-size: 20px; }
+    footer .left .copyright, footer .left .phone, footer .left .email {
+      margin: 8px auto; }
+      footer .left .copyright span, footer .left .phone span, footer .left .email span {
+        text-decoration: underline; }
+      footer .left .copyright a, footer .left .phone a, footer .left .email a {
+        text-decoration: none;
+        color: white; }
+  footer .right {
+    padding: 30px 4% 30px 0;
+    width: 30%;
+    background-color: #4caf50; }
+    footer .right a {
+      display: block;
+      margin: 8px auto;
+      text-align: right;
+      font-size: 20px;
+      text-decoration: none;
+      color: white; }

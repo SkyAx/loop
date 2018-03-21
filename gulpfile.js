@@ -11,11 +11,12 @@ var gulp        = require('gulp'),
     cache       = require('gulp-cache'),
     sftp        = require('gulp-sftp'),
     nodemon     = require('gulp-nodemon'),
-    less        = require('gulp-less');
+    less        = require('gulp-less'),
+    sass        = require('gulp-sass');
 
-gulp.task('less', function () {
-    return gulp.src('app/public/less/**/*.less')
-        .pipe(less())
+gulp.task('sass', function () {
+    return gulp.src('app/public/styles/**/*.sass')
+        .pipe(sass())
         .pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8'], {cascade: true}))
         .pipe(gulp.dest('app/public/css'))
         .pipe(browserSync.reload({stream: true}))
@@ -23,7 +24,7 @@ gulp.task('less', function () {
 
 gulp.task('nodemon', function (cb) {
     var callbackCalled = false;
-    return nodemon({script: 'app/circle.js'}).on('start', function () {
+    return nodemon({script: 'app/loop.js'}).on('start', function () {
         if (!callbackCalled) {
             callbackCalled = true;
             cb();
@@ -33,14 +34,16 @@ gulp.task('nodemon', function (cb) {
 
 gulp.task('browser-sync', ['nodemon'], function () {
    browserSync({
-       logPrefix: 'circle',
+       logPrefix: 'loop',
        proxy: 'http://localhost:8080',
        notify: false
    });
 });
 
-gulp.task('css-libs', ['less'], function () {
-   return gulp.src('app/public/css/libs.css')
+gulp.task('css-libs', function () {
+   return gulp.src('app/public/styles/libs.less')
+       .pipe(less())
+       .pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8'], {cascade: true}))
        .pipe(cssnano())
        .pipe(rename({suffix: '.min'}))
        .pipe(gulp.dest('app/public/css'));
@@ -48,7 +51,8 @@ gulp.task('css-libs', ['less'], function () {
 
 gulp.task('js-libs', function () {
     return gulp.src([
-      'app/public/libs/jquery/dist/jquery.min.js'
+      'app/public/libs/jquery/dist/jquery.min.js',
+      'app/public/libs/swiper/dist/js/swiper.min.js'
     ])
         .pipe(concat('libs.min.js'))
         .pipe(uglify())
@@ -75,13 +79,13 @@ gulp.task('img', function () {
 });
 
 gulp.task('default', ['browser-sync', 'js-libs', 'css-libs'], function () {
-    gulp.watch('app/public/styles/**/*.less', ['less']);
+    gulp.watch('app/public/styles/**/*.sass', ['sass']);
     gulp.watch('app/public/js/**/*.js', browserSync.reload);
-    gulp.watch('app/public/circle.js', browserSync.reload);
+    gulp.watch('app/loop.js', browserSync.reload);
     gulp.watch('app/views/**/*', browserSync.reload)
 });
 
-gulp.task('build', ['clean', 'img', 'less', 'js-libs'], function () {
+gulp.task('build', ['clean', 'img', 'sass', 'js-libs'], function () {
     var buildCss = gulp.src([
         'app/public/css/core.css',
         'app/public/css/main.css'
@@ -102,16 +106,16 @@ gulp.task('build', ['clean', 'img', 'less', 'js-libs'], function () {
     var buildViews = gulp.src('app/views/**/*.jade')
         .pipe(gulp.dest('dist/views'));
 
-    var buildServer = gulp.src('app/circle.js')
+    var buildServer = gulp.src('app/loop.js')
         .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('sftp', function () {
     return gulp.src('dist/**/*')
         .pipe(sftp({
-            host: '174.138.61.250',
+            host: '138.197.121.145',
             user: 'root',
-            pass: 'genka.ideas!',
+            pass: 'genaplz!',
             remotePath: '/root'
         }));
 });
